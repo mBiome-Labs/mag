@@ -4,10 +4,10 @@ process GENOMAD_DOWNLOAD {
     conda "${moduleDir}/environment.yml"
     container "${workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container
         ? 'https://community-cr-prod.seqera.io/docker/registry/v2/blobs/sha256/bb/bbaadac0c5d49bb7c664d9d3651521aa638b795cdbab7eb9493ec66350508f97/data'
-        : 'community.wave.seqera.io/library/genomad:1.11.2--1e14efa5dfbf0dc3'}"
+        : '646026628204.dkr.ecr.eu-central-1.amazonaws.com/mbiome/bioinf:genomad-1.11.2--sse41'}"
 
     output:
-    path "genomad_db/" , emit: genomad_db
+    path "genomad_db/", emit: genomad_db
     path "versions.yml", emit: versions
 
     when:
